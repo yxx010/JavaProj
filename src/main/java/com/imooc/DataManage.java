@@ -6,13 +6,14 @@ public class DataManage {
     //定义一个10位数组，输入9个值，返回数组
     public int[] insertData() {
         int [] intArry=new int[10];
+        Scanner sc=new Scanner(System.in);
         for(int i=0;i<intArry.length-1;i++){
             System.out.println("请输入第"+(i+1)+"个数据：");
-            Scanner sc=new Scanner(System.in);
             intArry[i]=sc.nextInt();
             if(intArry[i]==0){
-                System.out.println("不能输入0！请重新输入！：");
-                intArry[i]=sc.nextInt();
+                System.out.print("不能输入0！");
+                i--;
+                //intArry[i]=sc.nextInt();
             }
             continue;
         }
@@ -22,8 +23,10 @@ public class DataManage {
     public void showData(int[] a, int length) {
         System.out.println("数组元素为：");
         for(int i=0;i<length;i++){
-            System.out.print(a[i]);
-            System.out.print(" ");
+            if(a[i]!=0){
+                System.out.print(a[i]);
+                System.out.print(" ");
+            }
         }
         System.out.println();
     }
@@ -36,11 +39,17 @@ public class DataManage {
     }
     //查询被3整存的数
     public void divThree(int[] a) {
-        System.out.print("能被3整除的数有：");
+        boolean flag=true;
+        System.out.print("数组中能被3整除的数有：");
         for (int i=0;i<a.length;i++){
-           if(a[i]%3==0)
+           if(a[i]%3==0) {
                System.out.print(a[i]+" ");
+               flag=false;
+           }
         }
+        //System.out.println();
+        if (flag==true)
+        System.out.print("没有被3整除的数");
         System.out.println();
     }
     //打印主窗口选择项
@@ -57,11 +66,11 @@ public class DataManage {
         int [] intArry=null;
         int in=0,n,k;
         DataManage dm=new DataManage();
+        Scanner sc = new Scanner(System.in);
         do {
             //打印主窗口选择项
             dm.notice();
             System.out.println("请输入对应的数字进行操作:");
-            Scanner sc = new Scanner(System.in);
             in = sc.nextInt();
             switch (in) {
                 //0--退出
