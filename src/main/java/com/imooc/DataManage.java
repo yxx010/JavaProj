@@ -15,7 +15,6 @@ public class DataManage {
                 i--;
                 //intArry[i]=sc.nextInt();
             }
-            continue;
         }
         return intArry;
     }
