@@ -16,24 +16,27 @@ public class CompanyTest {
         Staff staff4=new Staff("张美美","S005","女",26,d2,duty3);
         Staff staff5=new Staff("蓝迪","S006","男",37,d2,duty1);
         Staff staff6=new Staff("米莉","S007","女",24,d2,duty3);
-
+        //加人事部员工
         d1.addStaffs(staff1);
         d1.addStaffs(staff2);
         d1.addStaffs(staff3);
+        //加市场部员工
         d2.addStaffs(staff4);
         d2.addStaffs(staff5);
         d2.addStaffs(staff6);
+        //展示人事部员工信息
         for (int i=0;i<d1.getStaffNum();i++){
             System.out.println(d1.getStaffs()[i].staffInfo());
             System.out.println("================");
 
         }
+        //展示市场部员工信息
         for (int i=0;i<d2.getStaffNum();i++){
             System.out.println(d2.getStaffs()[i].staffInfo());
             System.out.println("================");
 
         }
-
+        //展示人事部、市场部员工人数
         System.out.println(d1.getDepartmentName()+"总共有"+d1.getStaffNum()+"名员工");
         System.out.println(d2.getDepartmentName()+"总共有"+d2.getStaffNum()+"名员工");
 
