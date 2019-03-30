@@ -3,12 +3,12 @@ package com.imooc.two;
 public class CompanyTest {
     public static void main(String[] args) {
 
-        Department d1=new Department("人事部");
-        Department d2=new Department("市场部");
+        Department d1=new Department("D001","人事部");
+        Department d2=new Department("D002","市场部");
 
-        Duty duty1=new Duty("经理");
-        Duty duty2=new Duty("助理");
-        Duty duty3=new Duty("职员");
+        Duty duty1=new Duty("T3","经理");
+        Duty duty2=new Duty("T2","助理");
+        Duty duty3=new Duty("T1","职员");
 
         Staff staff1=new Staff("张铭","S001","男",29,d1,duty1);
         Staff staff2=new Staff("张艾爱","S002","女",21,d1,duty2);

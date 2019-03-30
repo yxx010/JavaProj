@@ -14,6 +14,11 @@ public class Department {
     public Department(String departmentName){
         this.setDepartmentName(departmentName);
     }
+    public Department(String departmentNo,String departmentName){
+        this.setDepartmentNo(departmentNo);
+        this.setDepartmentName(departmentName);
+    }
+
 
     public String getDepartmentNo() {
         return departmentNo;

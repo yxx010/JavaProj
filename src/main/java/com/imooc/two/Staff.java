@@ -49,7 +49,7 @@ public class Staff {
     }
 
     public void setStaffAge(int staffAge) {
-        if(staffAge>=18||staffAge<=60)
+        if(staffAge>=18&&staffAge<=60)
         this.staffAge = staffAge;
         else
             this.staffAge=18;
@@ -60,7 +60,7 @@ public class Staff {
     }
 
     public void setStaffSex(String staffSex) {
-        if(staffSex=="男"||staffSex=="女")
+        if(staffSex.equals("男")||staffSex.equals("女"))
         this.staffSex = staffSex;
         else
             this.staffSex="男";

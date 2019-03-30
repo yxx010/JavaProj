@@ -12,6 +12,11 @@ public class Duty {
     public Duty(String dutyName){
         this.setDutyName(dutyName);
     }
+    public Duty(String dutyNo,String dutyName){
+        this.setDutyNo(dutyNo);
+        this.setDutyName(dutyName);
+    }
+
 
     public String getDutyNo() {
         return dutyNo;
