@@ -45,14 +45,14 @@ public class IActTest {
         }
         System.out.println("*******是否继续观看1/0*******");
            do{
-               i=sc.nextInt();
-               if(i!=0&i!=1){
+               j=sc.nextInt();
+               if(j!=0&j!=1){
                    System.out.println("输入错误，请重新输入：");
                }
            }
-           while(i!=0&i!=1);
+           while(j!=0&j!=1);
 
         }
-        while(i!=0);
+        while(j!=0);
     }
 }
