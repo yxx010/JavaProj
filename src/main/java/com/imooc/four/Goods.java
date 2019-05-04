@@ -1,13 +1,13 @@
 package com.imooc.four;
 
-import java.util.Objects;
-
 public class Goods {
     private String goodsId;
     private String goodsName;
     private double price;
     private String goodsDesp;
-    public Goods(){}
+
+    public Goods() {
+    }
 
     public Goods(String goodsId, String goodsName, double price, String goodsDesp) {
         this.goodsId = goodsId;
@@ -51,8 +51,8 @@ public class Goods {
     @Override
     public String toString() {
         return "商品信息[" +
-                "商品ID:" + goodsId+
-                ",商品名称：" + goodsName+
+                "商品ID:" + goodsId +
+                ",商品名称：" + goodsName +
                 ",商品价格：" + price +
                 ",商品描述：" + goodsDesp +
                 ']';
@@ -62,14 +62,14 @@ public class Goods {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Goods goods = (Goods) o;
-        return Objects.equals(goodsId, goods.goodsId);
+
+        return goodsId.equals(goods.goodsId);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(goodsId);
+        return goodsId.hashCode();
     }
-
 }
