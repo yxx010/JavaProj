@@ -48,58 +48,10 @@ public class TestDemo {
                 in = sc.nextInt();
                 switch (in) {
                     case 1:
-                        int i1;
-                        do {
-                            td.goodsManage();
-                            i1 = sc.nextInt();
-                            switch (i1) {
-                                case 1:
-                                    gm.importGoods();
-                                    break;
-                                case 2:
-                                    gm.displayAllGoods();
-                                    break;
-                                case 9:
-                                    System.out.println("已返回上级菜单");
-                                    break;
-                                default:
-                                    System.out.println("输入错误，请重新选择！");
-                                    break;
-                            }
-                        } while (i1 != 9);
+                        goodMange(td, gm, sc);
                         break;
                     case 2:
-                        int i2;
-                        do {
-                            td.shoppingCart();
-                            i2 = sc.nextInt();
-                            switch (i2) {
-                                case 1:
-                                    //添加商品到购物车
-                                    shop.addGoodsToCart(gm);
-                                    break;
-                                case 2:
-                                    //修改商品数量
-                                    shop.updateNumInCart();
-                                    break;
-                                case 3:
-                                    //显示全部商品
-                                    shop.displayAllInCart();
-                                    break;
-                                case 4:
-                                    //结算
-                                    shop.settleAccounts();
-                                    break;
-                                case 9:
-                                    //返回上级菜单
-                                    System.out.println("已返回上级菜单");
-                                    break;
-                                default:
-                                    System.out.println("输入错误");
-
-                            }
-                        } while (i2 != 9);
-
+                        shooppingCart(td, gm, shop, sc);
                         break;
                     case 0:
                         System.out.println("已退出程序！");
@@ -115,5 +67,60 @@ public class TestDemo {
 
         }
 
+    }
+
+    private static void shooppingCart(TestDemo testdemo, GoodsManage goodmanage, ShoppingCart shoppingcart, Scanner scanner) {
+        int i2;
+        do {
+            testdemo.shoppingCart();
+            i2 = scanner.nextInt();
+            switch (i2) {
+                case 1:
+                    //添加商品到购物车
+                    shoppingcart.addGoodsToCart(goodmanage);
+                    break;
+                case 2:
+                    //修改商品数量
+                    shoppingcart.updateNumInCart();
+                    break;
+                case 3:
+                    //显示全部商品
+                    shoppingcart.displayAllInCart();
+                    break;
+                case 4:
+                    //结算
+                    shoppingcart.settleAccounts();
+                    break;
+                case 9:
+                    //返回上级菜单
+                    System.out.println("已返回上级菜单");
+                    break;
+                default:
+                    System.out.println("输入错误");
+
+            }
+        } while (i2 != 9);
+    }
+
+    private static void goodMange(TestDemo testdemo, GoodsManage goodmanage, Scanner scanner) {
+        int i1;
+        do {
+            testdemo.goodsManage();
+            i1 = scanner.nextInt();
+            switch (i1) {
+                case 1:
+                    goodmanage.importGoods();
+                    break;
+                case 2:
+                    goodmanage.displayAllGoods();
+                    break;
+                case 9:
+                    System.out.println("已返回上级菜单");
+                    break;
+                default:
+                    System.out.println("输入错误，请重新选择！");
+                    break;
+            }
+        } while (i1 != 9);
     }
 }
