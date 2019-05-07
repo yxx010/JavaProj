@@ -51,7 +51,7 @@ public class TestDemo {
                         goodMange(td, gm, sc);
                         break;
                     case 2:
-                        shooppingCart(td, gm, shop, sc);
+                        shoppingCart(td, gm, shop, sc);
                         break;
                     case 0:
                         System.out.println("已退出程序！");
@@ -69,7 +69,7 @@ public class TestDemo {
 
     }
 
-    private static void shooppingCart(TestDemo testdemo, GoodsManage goodmanage, ShoppingCart shoppingcart, Scanner scanner) {
+    private static void shoppingCart(TestDemo testdemo, GoodsManage goodsmanage, ShoppingCart shoppingcart, Scanner scanner) {
         int i2;
         do {
             testdemo.shoppingCart();
@@ -77,7 +77,7 @@ public class TestDemo {
             switch (i2) {
                 case 1:
                     //添加商品到购物车
-                    shoppingcart.addGoodsToCart(goodmanage);
+                    shoppingcart.addGoodsToCart(goodsmanage);
                     break;
                 case 2:
                     //修改商品数量
@@ -102,17 +102,17 @@ public class TestDemo {
         } while (i2 != 9);
     }
 
-    private static void goodMange(TestDemo testdemo, GoodsManage goodmanage, Scanner scanner) {
+    private static void goodMange(TestDemo testdemo, GoodsManage goodsmanage, Scanner scanner) {
         int i1;
         do {
             testdemo.goodsManage();
             i1 = scanner.nextInt();
             switch (i1) {
                 case 1:
-                    goodmanage.importGoods();
+                    goodsmanage.importGoods();
                     break;
                 case 2:
-                    goodmanage.displayAllGoods();
+                    goodsmanage.displayAllGoods();
                     break;
                 case 9:
                     System.out.println("已返回上级菜单");
