@@ -1,9 +1,10 @@
-package com.imooc.three;
+package com.imooc.work3;
 
-public class Parrot extends Animal implements IAct {
+
+public class Monkey extends Animal implements IAct {
     private String brand;
-    public Parrot(){}
-    public Parrot(String name,int age,String brand){
+    public Monkey(){}
+    public Monkey(String name,int age,String brand){
         this.setName(name);
         this.setAge(age);
         this.setBrand(brand);
@@ -18,11 +19,11 @@ public class Parrot extends Animal implements IAct {
     }
 
     public void love() {
-        System.out.println("喜欢吃坚果和松子");
+        System.out.println("喜欢模仿人的动作表情");
     }
 
     public void skill() {
-        System.out.println("擅长模仿");
+        System.out.println("骑独轮车过独木桥");
     }
 
     public void act() {

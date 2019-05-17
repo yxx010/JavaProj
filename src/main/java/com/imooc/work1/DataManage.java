@@ -1,4 +1,4 @@
-package com.imooc.one;
+package com.imooc.work1;
 
 import java.util.Scanner;
 

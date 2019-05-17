@@ -1,4 +1,4 @@
-package com.imooc.two;
+package com.imooc.work2;
 
 public class Duty {
     //能够描述职务编号、职务名称

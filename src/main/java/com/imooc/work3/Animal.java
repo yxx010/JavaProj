@@ -1,4 +1,4 @@
-package com.imooc.three;
+package com.imooc.work3;
 
 public abstract class Animal {
     private String name;

@@ -1,4 +1,4 @@
-package com.imooc.two;
+package com.imooc.work2;
 
 public class Department {
     //能够描述部门编号、部门名称、获取所有该部门员工信息;

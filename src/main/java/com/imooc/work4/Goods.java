@@ -1,4 +1,4 @@
-package com.imooc.four;
+package com.imooc.work4;
 
 public class Goods {
     private String goodsId;

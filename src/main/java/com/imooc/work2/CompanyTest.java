@@ -1,4 +1,4 @@
-package com.imooc.two;
+package com.imooc.work2;
 
 public class CompanyTest {
     public static void main(String[] args) {

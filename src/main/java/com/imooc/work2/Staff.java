@@ -1,7 +1,4 @@
-package com.imooc.two;
-
-import com.imooc.two.Department;
-import com.imooc.two.Duty;
+package com.imooc.work2;
 
 public class Staff {
     //需求要求：
