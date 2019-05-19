@@ -4,6 +4,9 @@ public class Song {
     private String id;
     private String name;
     private String singer;
+    public Song(){
+
+    }
 
     public Song(String id, String name, String singer) {
         this.id = id;
@@ -53,10 +56,9 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", singer='" + singer + '\'' +
-                '}';
+        return "歌曲信息：" +
+                "id为" + id  +
+                ", 名称为" + name  +
+                ", 演唱者为" + singer;
     }
 }
