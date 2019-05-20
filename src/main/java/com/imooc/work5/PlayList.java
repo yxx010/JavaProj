@@ -70,9 +70,8 @@ public class PlayList {
     //    	－修改歌曲：
     public void updateSong(String id,Song song){
         Song s=searchSongById(id);
-        musicList.remove(s);
-        s=song;
-        musicList.add(song);
+        s.setName(song.getName());
+        s.setSinger(song.getSinger());
     }
 
     //    	－从播放列表删除歌曲：

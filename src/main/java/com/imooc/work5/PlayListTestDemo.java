@@ -7,7 +7,7 @@ public class PlayListTestDemo {
         Scanner sc=new Scanner(System.in);
         PlayListTestDemo td=new PlayListTestDemo();
         PlayList mainPlayList=new PlayList("主播放列表");
-        PlayList playList=new PlayList();
+        PlayList playList=new PlayList("普通播放列表");
         PlayListCollection plc=new PlayListCollection();
         plc.addPlayList(mainPlayList);
         int i;
@@ -25,6 +25,7 @@ public class PlayListTestDemo {
                             System.out.println("请输入要添加的歌曲数量：");
                             int songNum=sc.nextInt();
                             for (int j = 0; j <songNum ; j++) {
+                                System.out.println("请输入第"+(j+1)+"首歌曲");
                                 System.out.println("请输入要添加的歌曲ID：");
                                 String id=sc.next();
                                 if(mainPlayList.searchSongById(id)!=null){
@@ -38,39 +39,76 @@ public class PlayListTestDemo {
                                 Song song=new Song(id,name,singer);
                                 mainPlayList.addToPlayList(song);
                                 System.out.println(song);
-                                //System.out.println(mainPlayList.searchSongById(id));
-
                             }
-                            //mainPlayList.addToPlayList();
                             break;
                         case 2:
                             System.out.println("请输入播放列表名称：");
-                            String play=sc.next();
+                            String playListName=sc.next();
+                            if(!plc.getPlayListMap().containsKey(playListName)){
+                                System.out.println("输入的播放列表不存在，请到播放器管理添加！");
+                            }
+                            System.out.println("请输入要添加的歌曲数量：");
+                            int num=sc.nextInt();
+                            for (int k = 0; k <num ; k++) {
+                                System.out.println("请输入第"+(k+1)+"首歌曲");
+                                System.out.println("请输入要添加的歌曲ID：");
+                                String id=sc.next();
+                                Song song;
+                                if (playList.searchSongById(id)!=null){
+                                    System.out.println("当前歌曲已存在！");
+                                    continue;
+                                }
+                                if(mainPlayList.searchSongById(id)!=null){
+                                    song=mainPlayList.searchSongById(id);
+                                    plc.getPlayListMap().get(playListName).addToPlayList(song);
+                                    System.out.println("已添加成功！");
+                                    continue;
+                                }
+                                System.out.println("请输入要添加的歌曲名称：");
+                                String name=sc.next();
+                                System.out.println("请输入要添加的演唱者：");
+                                String singer=sc.next();
+                                song=new Song(id,name,singer);
+                                playList.addToPlayList(song);
+                                System.out.println(song);
+                            }
                             break;
                         case 3:
+                            System.out.println("请输入播放列表名称");
+                            playListName=sc.next();
                             System.out.println("请输入歌曲id：");
                             String id=sc.next();
-                            System.out.println(mainPlayList.searchSongById(id));
+                            if(!plc.getPlayListMap().containsKey(playListName)){
+                                System.out.println("该播放列表不存在");
+                            }
+                            if(playListName.equals("主播放列表")){
+                                System.out.println(mainPlayList.searchSongById(id));
+                            }
+                            System.out.println(playList.searchSongById(id));
                             break;
                         case 4:
-                            /*PlayList searchList=new PlayList();
                             System.out.println("请输入播放列表名称");
-                            String planListName=sc.next();
-                            if(planListName.equals("主播放列表")){
-                                searchList=mainPlayList;
+                            playListName=sc.next();
+                            System.out.println("请输入歌曲id：");
+                            String name = sc.next();
+                            if(!plc.getPlayListMap().containsKey(playListName)){
+                                System.out.println("该播放列表不存在");
                             }
-                            else if(plc.getPlayListMap().containsKey(planListName)){
-                                searchList=plc.getPlayListMap().get(planListName);
+                            if(playListName.equals("主播放列表")){
+                                System.out.println(mainPlayList.searchSongByName(name));
                             }
-                            else {
-                                System.out.println("播放列表不存在");
-                                break;
-                            }
-                            System.out.println("请输入歌曲名称：");
-                            String name=sc.next();
-                            System.out.println(searchList.searchSongByName(name));*/
+                            System.out.println(playList.searchSongByName(name));
                             break;
                         case 5:
+                            System.out.println("修改播放列表中的歌曲");
+                            System.out.println("请输入要修改的歌曲id：");
+                            id=sc.next();
+                            System.out.println("请输入修改后的歌曲名称：");
+                            name=sc.next();
+                            System.out.println("请输入修改后的演唱者：");
+                            String singer=sc.next();
+                            Song tempSong=new Song(id,name,singer);
+                            playList.updateSong(id,tempSong);
                             break;
                         case 6:
                             break;
@@ -98,6 +136,7 @@ public class PlayListTestDemo {
                             System.out.println("请输入播放器列表名称：");
                             playListName=sc.next();
                             playList.setPlayListName(playListName);
+
                             plc.addPlayList(playList);
                             break;
                         case 2:
