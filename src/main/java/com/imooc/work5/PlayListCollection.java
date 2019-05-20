@@ -16,7 +16,9 @@ public class PlayListCollection {
     }
 
     public void addPlayList(PlayList playList){
-        playListMap.put(playList.getPlayListName(),playList);
+        if(searchPlayListByName(playList.getPlayListName())==null){
+            playListMap.put(playList.getPlayListName(),playList);
+        }
     }
     public void deletePlayList(PlayList playList){
         playListMap.remove(playList.getPlayListName());
