@@ -1,5 +1,6 @@
 package com.imooc.work5;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,9 +41,14 @@ public class PlayList {
 
     //显示播放列表中所有歌曲：
     public void displayAllSong(){
-        for (int i = 0; i < musicList.size(); i++) {
-            System.out.println(musicList.get(i));
+        if(musicList.size()>0){
+            for (int i = 0; i < musicList.size(); i++) {
+                System.out.println(musicList.get(i));
+            }
+        }else{
+            System.out.println("播放列表中，暂无歌曲");
         }
+
 
     }
 
@@ -76,18 +82,51 @@ public class PlayList {
 
     //    	－从播放列表删除歌曲：
     public void deleteSong(String id){
-        Song song=searchSongById(id);
-        musicList.remove(song);
+        Song song=null;
+        if(searchSongById(id)!=null){
+            song=searchSongById(id);
+            musicList.remove(song);
+        }else{
+            System.out.println("该歌曲不存在");
+        }
     }
 
     //             - 导出歌单 ：序列化
     public void exportPlayList(){
+        try {
+            FileOutputStream fos=new FileOutputStream(playListName+".txt");
+            ObjectOutputStream oos=new ObjectOutputStream(fos);
+            oos.writeObject(getMusicList());
+            oos.writeObject(null);
+            oos.close();
+            fos.close();
 
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String toString() {
         return "该播放列表名称为："+this.getPlayListName()
                 +"\n播放列表所有歌曲为："+musicList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PlayList playList = (PlayList) o;
+
+        return playListName != null ? playListName.equals(playList.playListName) : playList.playListName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return playListName != null ? playListName.hashCode() : 0;
     }
 }
