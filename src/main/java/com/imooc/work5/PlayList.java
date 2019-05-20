@@ -42,6 +42,7 @@ public class PlayList {
     //显示播放列表中所有歌曲：
     public void displayAllSong(){
         if(musicList.size()>0){
+            System.out.println("播放列表中的所有歌曲为：");
             for (int i = 0; i < musicList.size(); i++) {
                 System.out.println(musicList.get(i));
             }
@@ -110,8 +111,7 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return "该播放列表名称为："+this.getPlayListName()
-                +"\n播放列表所有歌曲为："+musicList;
+        return "播放列表名称："+getPlayListName()+"\n播放列表所有歌曲为："+musicList;
     }
 
     @Override

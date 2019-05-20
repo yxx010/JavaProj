@@ -24,9 +24,6 @@ public class PlayListCollection {
         playListMap.remove(playList.getPlayListName());
     }
     public PlayList searchPlayListByName(String playListName){
-        if(!playListMap.keySet().contains(playListName)){
-            System.out.println("该播放列表不存在！");
-        }
         return playListMap.get(playListName);
     }
     public void displayPlayListName(){
