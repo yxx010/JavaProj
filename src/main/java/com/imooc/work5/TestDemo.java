@@ -1,5 +1,6 @@
 package com.imooc.work5;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestDemo {
@@ -13,7 +14,11 @@ public class TestDemo {
         PlayList mainPlayList=new PlayList("主播放列表");
         PlayListCollection plc=new PlayListCollection();
         plc.addPlayList(mainPlayList);
-        td.test(sc, td, mainPlayList, plc);
+        try {
+            td.test(sc, td, mainPlayList, plc);
+        }catch (InputMismatchException ie){
+            System.out.println("输入数据类型错误");
+        }
     }
 
     public void test(Scanner sc, TestDemo td, PlayList mainPlayList, PlayListCollection plc) {
@@ -232,7 +237,7 @@ public class TestDemo {
 
     public void mainMenu(){
         System.out.println("**********************");
-        System.out.println("1--播放器列表管理");
+        System.out.println("1--播放列表管理");
         System.out.println("2--播放器管理");
         System.out.println("0--退出");
         System.out.println("**********************");
