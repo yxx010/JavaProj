@@ -58,8 +58,10 @@ public class PlayList {
         Song song=null;
         for (int i = 0; i <musicList.size() ; i++) {
             if(musicList.get(i).getId().equals(id))
+            {
                 song= musicList.get(i);
-            break;
+                break;
+            }
         }
         return song;
     }
@@ -68,8 +70,10 @@ public class PlayList {
         Song song=null;
         for (int i = 0; i < musicList.size(); i++) {
             if(musicList.get(i).getName().equals(n))
+            {
                 song=musicList.get(i);
-            break;
+                break;
+            }
         }
         return song;
     }
@@ -77,21 +81,18 @@ public class PlayList {
     //    	－修改歌曲：
     public void updateSong(String id,Song song){
         Song s=searchSongById(id);
-        s.setName(song.getName());
-        s.setSinger(song.getSinger());
-    }
-
-    //    	－从播放列表删除歌曲：
-    public void deleteSong(String id){
-        Song song=null;
-        if(searchSongById(id)!=null){
-            song=searchSongById(id);
-            musicList.remove(song);
-        }else{
-            System.out.println("该歌曲不存在");
+        if(s!=null){
+            s.setName(song.getName());
+            s.setSinger(song.getSinger());
         }
     }
-
+    //    	－从播放列表删除歌曲：
+    public void deleteSong(String id){
+        Song song=searchSongById(id);
+        if(song!=null){
+            musicList.remove(song);
+        }
+    }
     //             - 导出歌单 ：序列化
     public void exportPlayList(){
         try {
@@ -101,12 +102,33 @@ public class PlayList {
             oos.writeObject(null);
             oos.close();
             fos.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } /*catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }*/
+    }
+    public void importPlayList(){
+        try {
+            FileInputStream fis=new FileInputStream(playListName+".txt");
+            ObjectInputStream ois=new ObjectInputStream(fis);
+            PlayList pl=new PlayList();
+            while ((pl.musicList=(List<Song>) (ois.readObject()))!=null){
+                pl.displayAllSong();
+                System.out.println();
+            }
+            fis.close();
+            ois.close();
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
         }
+
     }
 
     @Override
