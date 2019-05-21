@@ -106,9 +106,7 @@ public class PlayList {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } /*catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
+        }
     }
     public void importPlayList(){
         try {
