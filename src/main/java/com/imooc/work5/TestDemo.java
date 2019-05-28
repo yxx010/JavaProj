@@ -246,6 +246,9 @@ public class TestDemo {
                         case 9:
                             System.out.println("已返回上级菜单");
                             break;
+                        default:
+                            System.out.println("输入错误");
+                            break;
                     }
                     }
                     while (case2!=9);
